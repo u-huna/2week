@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h1>스크롤 탑 이동</h1>
+        <h1>스크롤 탑</h1>
     </header>
 
     <aside id="scrollTop">
@@ -24,11 +24,28 @@
     </section>
 
     <script>
+        $(document).ready(function(){
+        
+        $("#scrollTop").hide();
+        // 먼저 탑 버튼 숨겨줌
+
+        $(window).scroll(function() { 
+            if ($(this).scrollTop() > 500) { 
+            $('#scrollTop').fadeIn(500); } 
+            else { $('#scrollTop').fadeOut(500); } 
+        });
+        // 윈도우에서 스크롤을 500px 만큼 내렸을 때, 
+        // 500 보다 크면 스크롤 바를 나타나게 하고 
+        // 그렇지 않으면 스크롤 바를 사라지게 해라
+
         $("#scrollTop").click(function(){
             console.log("click");
-            $('html, body').animate({scrollTop: 0}, 1000);
+            $('html, body').animate({scrollTop: 0}, 1000 );
         });
+        });
+
     </script>
+
 
 
 </body>
